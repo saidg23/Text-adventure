@@ -1,17 +1,9 @@
 #include <iostream>
+#include "struct.h"
+#include "rooms.h"
+#include "global_variables.h"
 
 using namespace std;
-
-string placeholder;
-string command;
-bool play(true);
-
-struct Character
-{
-    bool alive = true;
-};
-
-Character bob;
 
 bool quit()
 {
@@ -24,77 +16,6 @@ bool quit()
         if(command == "n")
             return false;
         }
-}
-
-
-string gotoHallway()
-{
-    while(bob.alive)
-    {
-        if(command == "cmetr")
-            cout << "you have entered the hallway \n\n>";
-        else if(command == "enter bedroom")
-            return command;
-
-        else if(command == "quit")
-            return command;
-        else
-            cout << "I don't understand what you mean\n\n>";
-
-        getline(cin, command);
-    }
-}
-
-string gotoBathroom()
-{
-    while(bob.alive)
-    {
-        if(command == "cmetr")
-            cout << "you are in your bathroom \n\n>";
-        else if(command == "enter bedroom")
-            return command;
-
-        else if(command == "quit")
-            return command;
-        else if(command == "die")
-        {
-            bob.alive = false;
-            continue;
-        }
-        else
-            cout << "I don't understand what you mean\n\n>";
-
-        getline(cin, command);
-    }
-    cout << "you have died \n";
-    play = false;
-    return "null";
-}
-
-string gotoBedroom()
-{
-    while(bob.alive)
-    {
-        if(command == "cmetr")
-            cout << "You are in your bedroom \n\n>";
-        else if(command == "look")
-        {
-            cout << "There are two doors, a bed, and a computer in a corner \n";
-            cout << "One door leads to the bathroom the other leads to the hallway \n\n>";
-        }
-        else if(command == "look at bed")
-            cout << "It is messy \n\n>";
-        else if(command == "enter hallway")
-            return command;
-        else if(command == "enter bathroom")
-            return command;
-        else if(command == "quit")
-            return command;
-        else
-            cout << "I don't understand what you mean\n\n>";
-
-        getline(cin, command);
-    }
 }
 
 int main()
